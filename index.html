@@ -15,7 +15,6 @@
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%;font-family:Inter,system-ui,Segoe UI,Arial;color:#e6eef8;overflow-x:hidden}
     
-    /* Background animation */
     body{
       background:linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 100%);
       animation:bgShift 12s ease-in-out infinite alternate;
@@ -37,8 +36,7 @@
 
     a{color:var(--accent);text-decoration:none}
     .wrap{max-width:1100px;margin:48px auto;padding:24px;position:relative;z-index:1}
-    
-    /* Hero Section */
+
     .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center}
     .profile-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:22px;backdrop-filter:blur(6px);box-shadow:0 8px 30px rgba(2,6,23,0.6)}
     .name{font-size:28px;font-weight:800;letter-spacing:-0.6px;margin:0}
@@ -48,15 +46,13 @@
     .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:10px;color:inherit;cursor:pointer;transition:.3s}
     .btn-primary{background:linear-gradient(90deg,var(--accent),#6be2ff);color:#032;box-shadow:0 6px 18px rgba(0,212,255,0.08);border:0}
     .btn:hover{transform:translateY(-3px)}
-    
-    /* Timeline */
+
     .timeline{margin-top:34px}
     .events{display:flex;flex-direction:column;gap:12px}
     .event{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:12px;background:var(--glass);border:1px solid var(--glass-2)}
     .dot{width:12px;height:12px;border-radius:50%;background:var(--accent);margin-top:6px}
     .meta{font-size:13px;color:var(--muted)}
-    
-    /* Skills */
+
     .skills{padding:18px;border-radius:12px;background:linear-gradient(180deg,#07102655,#07102233);border:1px solid var(--glass-2);margin-top:40px}
     .skills-category{margin-top:24px}
     .skills-category h4{color:var(--accent);margin-bottom:10px;border-left:3px solid var(--accent);padding-left:8px}
@@ -66,27 +62,27 @@
     .skill-item:hover{background:var(--accent);color:#031728;transform:translateY(-4px)}
     .skill-item:hover i{color:#031728}
 
-    /* Projects */
     .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px}
     .proj{padding:16px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid var(--glass-2);transition:transform .35s,box-shadow .35s}
     .proj:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,8,24,0.6)}
+    .proj .links{margin-top:10px}
+    .proj .btn-small{font-size:13px;padding:6px 10px;background:rgba(255,255,255,0.05);border-radius:8px;border:1px solid rgba(255,255,255,0.06);transition:.3s}
+    .proj .btn-small:hover{background:var(--accent);color:#031728}
 
-    /* Contact */
     .contact{margin-top:26px;padding:18px;border-radius:12px;background:linear-gradient(180deg,#061020,#071022);border:1px solid var(--glass-2);display:flex;justify-content:space-between;gap:12px;align-items:center}
     .links{display:flex;gap:12px;margin-top:8px}
     .chip{padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-size:14px}
-    
+
     footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
-    
     @media(max-width:920px){.hero{grid-template-columns:1fr}.projects{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <div id="particles"></div>
-  <div class="wrap" id="top">
+  <div class="wrap">
     <!-- HERO -->
-    <div class="hero">
-      <section class="profile-card">
+    <section class="hero">
+      <div class="profile-card">
         <h1 class="name">Suraj Tiwari — <span style="color:var(--accent)">Java Backend Developer</span></h1>
         <div class="role">Building <span style="color:var(--accent)">reliable backend systems</span> that scale</div>
         <p class="summary">I am a <strong>backend-first engineer</strong> with ~3.6 years of hands-on experience designing resilient <strong>Spring Boot microservices</strong>, optimizing APIs, and implementing <strong>secure CI/CD pipelines</strong>. I enjoy turning complex data flows into simple, robust systems.</p>
@@ -94,16 +90,16 @@
           <a class="btn btn-primary" href="#projects">View Projects</a>
           <a class="btn" href="mailto:surajdeveloper9@gmail.com">Email Me</a>
         </div>
-      </section>
+      </div>
       <aside style="padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid var(--glass-2)">
         <h3>Snapshot</h3>
         <div class="meta">3.6 years • <strong>Java</strong>, <strong>Spring Boot</strong> • <strong>AWS</strong>, <strong>Docker</strong> • <strong>JUnit</strong>, <strong>Mockito</strong></div>
         <div style="margin-top:12px"><strong>Contact</strong><div class="meta">surajdeveloper9@gmail.com<br>+91 74940 20066</div></div>
       </aside>
-    </div>
+    </section>
 
     <!-- TIMELINE -->
-    <section class="timeline" id="experience">
+    <section class="timeline">
       <h3>Career Timeline</h3>
       <div class="events">
         <div class="event"><div class="dot"></div><div><h4><strong>Associate Consultant</strong> — Infosys (Jul 2025 – Present)</h4><div class="meta">Working on <strong>Spring Boot microservices</strong>, <strong>Docker</strong> deployments & <strong>CI/CD</strong> pipelines while advancing <strong>cloud expertise</strong>.</div></div></div>
@@ -112,7 +108,7 @@
     </section>
 
     <!-- SKILLS -->
-    <section class="skills" id="skills">
+    <section class="skills">
       <h3>Technical Skills</h3>
 
       <div class="skills-category">
@@ -166,6 +162,15 @@
       <h3>Highlighted Projects</h3>
       <div class="projects">
         <article class="proj">
+          <h4><strong>RentFlex — Multi-Vendor Rental Platform (Ongoing)</strong></h4>
+          <p class="meta">A full-stack project where I’m building a <strong>multi-vendor rental marketplace</strong> that connects users and vendors to rent products like tools, gadgets, and vehicles. It solves the problem of <strong>scattered rental management</strong> by offering unified item listing, rental tracking, and payment management.</p>
+          <p class="meta"><strong>Tech Stack:</strong> Java, Spring Boot (Microservices), React JS, Docker, Kubernetes, Kafka, RabbitMQ, PostgreSQL, and OAuth2 Authentication.</p>
+          <div class="links">
+            <a href="https://github.com/surajdeveloper9/RentFlex" target="_blank" class="btn-small"><i class="bi bi-github"></i> View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="proj">
           <h4><strong>SIM — Real-time IoT Processing</strong></h4>
           <p class="meta">Developed a <strong>Spring Boot backend</strong> integrated with <strong>AWS</strong> for processing aviation IoT data. Implemented <strong>REST APIs</strong>, data pipelines, and <strong>unit tests</strong> ensuring reliability and scalability.</p>
         </article>
@@ -178,7 +183,7 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="contact" id="contact">
+    <section class="contact">
       <div>
         <h3>Let's build something <span style="color:var(--accent)">impactful</span></h3>
         <div class="meta">Open to <strong>backend</strong> and <strong>cloud-native</strong> opportunities.</div>
@@ -193,11 +198,9 @@
     <footer>© Suraj Tiwari — Built with <strong>HTML, CSS & GSAP</strong>.</footer>
   </div>
 
-  <!-- GSAP Animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script>
-    // Floating particles
     const particleContainer=document.getElementById('particles');
     for(let i=0;i<35;i++){
       const p=document.createElement('div');
@@ -209,14 +212,12 @@
       particleContainer.appendChild(p);
     }
 
-    // Particles move slightly with mouse
     document.addEventListener('mousemove', e=>{
       const x=(e.clientX/window.innerWidth-0.5)*20;
       const y=(e.clientY/window.innerHeight-0.5)*20;
       particleContainer.style.transform=`translate(${x}px,${y}px)`;
     });
 
-    // GSAP skill animations
     gsap.utils.toArray('.skill-item').forEach((s,i)=>{
       gsap.from(s,{scale:0.5,opacity:0,y:20,delay:0.05*i,duration:0.6,ease:'back.out(1.7)',scrollTrigger:{trigger:s,start:'top 90%'}});
       gsap.to(s.querySelector('i'),{scale:1.4,repeat:1,yoyo:true,duration:0.4,delay:0.05*i,scrollTrigger:{trigger:s,start:'top 90%'}});
