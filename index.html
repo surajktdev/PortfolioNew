@@ -644,3 +644,135 @@
     }
   </style>
 </head>
+  <body>
+  <div class="grid-bg"></div>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-content">
+      <div class="logo">Suraj Tiwari</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-tag">Java Backend Developer</span>
+        <h1>
+          Hi, I'm <span id="typed-name" class="gradient-text"></span>
+        </h1>
+        <p class="hero-description">
+          Passionate about building scalable backend solutions with Java, Spring Boot, and Microservices. 
+          Experienced in designing APIs, optimizing performance, and implementing secure applications.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+      </div>
+
+      <!-- Hero visual / floating code blocks -->
+      <div class="hero-visual">
+        <div class="code-block">
+          <div class="code-line"><span class="keyword">public</span> <span class="keyword">class</span> HelloWorld {</div>
+          <div class="code-line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {</div>
+          <div class="code-line">    System.out.println(<span class="string">"Hello!"</span>);</div>
+          <div class="code-line">  }</div>
+          <div class="code-line">}</div>
+        </div>
+        <div class="code-block">
+          <div class="code-line"><span class="comment">// Spring Boot API Example</span></div>
+          <div class="code-line">@RestController</div>
+          <div class="code-line">public class <span class="class">UserController</span> {</div>
+          <div class="code-line">  @GetMapping("/users")</div>
+          <div class="code-line">  public List<User> getAllUsers() {}</div>
+          <div class="code-line">}</div>
+        </div>
+        <div class="code-block">
+          <div class="code-line"><span class="comment">// Microservices Communication</span></div>
+          <div class="code-line">FeignClient -> REST -> Another Service</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills">
+      <div class="section-header">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">Technologies and tools I use to build high-quality backend solutions</p>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Backend -->
+        <div class="skill-category">
+          <h3><i class="bi bi-server"></i> Backend</h3>
+          <div class="skill-list">
+            <span class="skill-item">Java 8+</span>
+            <span class="skill-item">Spring Boot</span>
+            <span class="skill-item">Spring Security</span>
+            <span class="skill-item">Hibernate / JPA</span>
+            <span class="skill-item">Microservices</span>
+            <span class="skill-item">REST / Feign</span>
+            <span class="skill-item">OAuth2 / JWT</span>
+            <span class="skill-item">Postman</span>
+            <span class="skill-item">Swagger</span>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="skill-category">
+          <h3><i class="bi bi-database"></i> Databases</h3>
+          <div class="skill-list">
+            <span class="skill-item">PostgreSQL</span>
+            <span class="skill-item">MySQL</span>
+            <span class="skill-item">MongoDB</span>
+            <span class="skill-item">Redis / Caching</span>
+          </div>
+        </div>
+
+        <!-- Tools & DevOps -->
+        <div class="skill-category">
+          <h3><i class="bi bi-tools"></i> Tools & DevOps</h3>
+          <div class="skill-list">
+            <span class="skill-item">Git / GitHub</span>
+            <span class="skill-item">Maven / Gradle</span>
+            <span class="skill-item">Docker / Docker Compose</span>
+            <span class="skill-item">Kubernetes</span>
+            <span class="skill-item">Checkmarx</span>
+            <span class="skill-item">CI/CD Pipelines</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Suraj Tiwari. All rights reserved.
+  </footer>
+
+  <!-- Typed.js effect -->
+  <script>
+    const name = "Suraj Tiwari";
+    const typedName = document.getElementById("typed-name");
+    let index = 0;
+
+    function typeEffect() {
+      if (index < name.length) {
+        typedName.textContent += name.charAt(index);
+        index++;
+        setTimeout(typeEffect, 150);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", typeEffect);
+  </script>
+</body>
+</html>
+
