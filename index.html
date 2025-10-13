@@ -8,6 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   
+  <!-- Typed.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  
   <style>
     :root {
       --bg: #0a0a0f;
@@ -156,11 +159,12 @@
       line-height: 1.1;
     }
     
-    .hero h1 .gradient-text {
+    .gradient-text {
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      display: inline-block;
     }
     
     .hero-description {
@@ -665,7 +669,7 @@
       <div class="hero-content">
         <div class="hero-tag">🚀 Available for opportunities</div>
         <h1>
-          Hi, I'm <span class="gradient-text">Suraj Tiwari</span><br>
+          Hi, I'm <span id="typed-name" class="gradient-text"></span><br>
           Backend Developer
         </h1>
         <p class="hero-description">
@@ -923,5 +927,15 @@
     </footer>
     
   </div> <!-- end container -->
+
+  <!-- Typed.js initialization -->
+  <script>
+    const typed = new Typed('#typed-name', {
+      strings: ["Suraj Tiwari"],
+      typeSpeed: 100,
+      backSpeed: 50,
+      loop: false
+    });
+  </script>
 </body>
 </html>
