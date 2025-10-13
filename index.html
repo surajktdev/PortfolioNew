@@ -644,135 +644,275 @@
     }
   </style>
 </head>
-  <body>
+<body>
   <div class="grid-bg"></div>
-
-  <!-- Navbar -->
+  
   <nav>
     <div class="nav-content">
-      <div class="logo">Suraj Tiwari</div>
+      <div class="logo">ST</div>
       <div class="nav-links">
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
-
+  
   <div class="container">
-    <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="about">
       <div class="hero-content">
-        <span class="hero-tag">Java Backend Developer</span>
+        <div class="hero-tag">🚀 Available for opportunities</div>
         <h1>
-          Hi, I'm <span id="typed-name" class="gradient-text"></span>
+          Hi, I'm <span class="gradient-text">Suraj Tiwari</span><br>
+          Backend Developer
         </h1>
         <p class="hero-description">
-          Passionate about building scalable backend solutions with Java, Spring Boot, and Microservices. 
-          Experienced in designing APIs, optimizing performance, and implementing secure applications.
+          Building scalable, secure backend systems with Java, Spring Boot, and cloud technologies. 3.6 years of experience crafting robust REST APIs and microservices.
         </p>
         <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary">View Projects</a>
-          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+          <a href="#projects" class="btn btn-primary">
+            View My Work
+            <i class="bi bi-arrow-right"></i>
+          </a>
+          <a href="assets/Suraj_Tiwari_Resume.pdf" download class="btn btn-secondary">
+            <i class="bi bi-download"></i>
+            Download Resume
+          </a>
         </div>
       </div>
-
-      <!-- Hero visual / floating code blocks -->
+      
       <div class="hero-visual">
         <div class="code-block">
-          <div class="code-line"><span class="keyword">public</span> <span class="keyword">class</span> HelloWorld {</div>
-          <div class="code-line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) {</div>
-          <div class="code-line">    System.out.println(<span class="string">"Hello!"</span>);</div>
-          <div class="code-line">  }</div>
+          <div class="code-line"><span class="keyword">@RestController</span></div>
+          <div class="code-line"><span class="keyword">public class</span> <span class="class">UserController</span> {</div>
+          <div class="code-line">  <span class="comment">// Building APIs</span></div>
           <div class="code-line">}</div>
         </div>
         <div class="code-block">
-          <div class="code-line"><span class="comment">// Spring Boot API Example</span></div>
-          <div class="code-line">@RestController</div>
-          <div class="code-line">public class <span class="class">UserController</span> {</div>
-          <div class="code-line">  @GetMapping("/users")</div>
-          <div class="code-line">  public List<User> getAllUsers() {}</div>
+          <div class="code-line"><span class="keyword">@Service</span></div>
+          <div class="code-line"><span class="keyword">public class</span> <span class="class">DataService</span> {</div>
+          <div class="code-line">  <span class="comment">// Processing logic</span></div>
           <div class="code-line">}</div>
         </div>
         <div class="code-block">
-          <div class="code-line"><span class="comment">// Microservices Communication</span></div>
-          <div class="code-line">FeignClient -> REST -> Another Service</div>
+          <div class="code-line"><span class="keyword">docker</span> build -t app .</div>
+          <div class="code-line"><span class="comment"># Containerizing</span></div>
         </div>
       </div>
     </section>
-
-    <!-- Technical Skills Section -->
+    
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-number">3.6+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Vulnerabilities Fixed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">90%+</div>
+        <div class="stat-label">Test Coverage</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Commitment</div>
+      </div>
+    </div>
+    
+    <section id="experience">
+      <div class="section-header">
+        <h2 class="section-title">Work Experience</h2>
+        <p class="section-subtitle">Building impactful backend solutions across organizations</p>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <h3 class="timeline-title">Associate Consultant</h3>
+              <div class="timeline-company">Infosys</div>
+            </div>
+            <div class="timeline-date">Jul 2025 – Present</div>
+          </div>
+          <p class="timeline-description">Noida, Uttar Pradesh</p>
+          <ul class="timeline-list">
+            <li>Contributing to Spring Boot microservices and REST API development within the Java competency team</li>
+            <li>Gaining hands-on experience with Docker deployments, AWS cloud solutions, and CI/CD pipelines</li>
+            <li>Learning from senior engineers to build scalable and maintainable backend systems</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tag">Java</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">Docker</span>
+            <span class="tag">AWS</span>
+            <span class="tag">CI/CD</span>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div>
+              <h3 class="timeline-title">System Engineer</h3>
+              <div class="timeline-company">Tata Consultancy Services</div>
+            </div>
+            <div class="timeline-date">Jan 2022 – Jun 2025</div>
+          </div>
+          <p class="timeline-description">Gandhinagar, Gujarat</p>
+          <ul class="timeline-list">
+            <li>Designed and developed scalable web applications using Java, Spring Boot, Spring Security, and PostgreSQL following SOLID principles</li>
+            <li>Collaborated with senior engineers to improve API efficiency and identify performance optimization opportunities</li>
+            <li>Resolved 50+ security vulnerabilities using Checkmarx and SonarQube, achieving enterprise compliance</li>
+            <li>Worked with AWS services (EC2, S3, SQS, CloudFormation, API Gateway) and supported CI/CD pipeline creation</li>
+            <li>Maintained 90%+ unit test coverage using JUnit and Mockito, ensuring reliability on releases</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tag">Java</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">Spring Security</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">AWS</span>
+            <span class="tag">JUnit</span>
+            <span class="tag">Mockito</span>
+            <span class="tag">Checkmarx</span>
+            <span class="tag">SonarQube</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
     <section id="skills">
       <div class="section-header">
         <h2 class="section-title">Technical Skills</h2>
-        <p class="section-subtitle">Technologies and tools I use to build high-quality backend solutions</p>
+        <p class="section-subtitle">Technologies I work with daily</p>
       </div>
-
+      
       <div class="skills-grid">
-        <!-- Backend -->
         <div class="skill-category">
-          <h3><i class="bi bi-server"></i> Backend</h3>
+          <h3><i class="bi bi-code-slash"></i> Languages</h3>
           <div class="skill-list">
-            <span class="skill-item">Java 8+</span>
-            <span class="skill-item">Spring Boot</span>
-            <span class="skill-item">Spring Security</span>
-            <span class="skill-item">Hibernate / JPA</span>
-            <span class="skill-item">Microservices</span>
-            <span class="skill-item">REST / Feign</span>
-            <span class="skill-item">OAuth2 / JWT</span>
-            <span class="skill-item">Postman</span>
-            <span class="skill-item">Swagger</span>
+            <span class="skill-item">Java</span>
+            <span class="skill-item">Python</span>
+            <span class="skill-item">SQL</span>
           </div>
         </div>
-
-        <!-- Databases -->
+        
         <div class="skill-category">
-          <h3><i class="bi bi-database"></i> Databases</h3>
+          <h3><i class="bi bi-box"></i> Frameworks</h3>
+          <div class="skill-list">
+            <span class="skill-item">Spring Boot</span>
+            <span class="skill-item">Spring Security</span>
+            <span class="skill-item">Microservices</span>
+            <span class="skill-item">REST APIs</span>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3><i class="bi bi-cloud"></i> DevOps & Cloud</h3>
+          <div class="skill-list">
+            <span class="skill-item">AWS</span>
+            <span class="skill-item">Docker</span>
+            <span class="skill-item">Kubernetes</span>
+            <span class="skill-item">Jenkins</span>
+            <span class="skill-item">CI/CD</span>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3><i class="bi bi-database"></i> Database & Testing</h3>
           <div class="skill-list">
             <span class="skill-item">PostgreSQL</span>
             <span class="skill-item">MySQL</span>
-            <span class="skill-item">MongoDB</span>
-            <span class="skill-item">Redis / Caching</span>
-          </div>
-        </div>
-
-        <!-- Tools & DevOps -->
-        <div class="skill-category">
-          <h3><i class="bi bi-tools"></i> Tools & DevOps</h3>
-          <div class="skill-list">
-            <span class="skill-item">Git / GitHub</span>
-            <span class="skill-item">Maven / Gradle</span>
-            <span class="skill-item">Docker / Docker Compose</span>
-            <span class="skill-item">Kubernetes</span>
-            <span class="skill-item">Checkmarx</span>
-            <span class="skill-item">CI/CD Pipelines</span>
+            <span class="skill-item">JUnit</span>
+            <span class="skill-item">Mockito</span>
           </div>
         </div>
       </div>
     </section>
-  </div>
-
-  <footer>
-    &copy; 2025 Suraj Tiwari. All rights reserved.
-  </footer>
-
-  <!-- Typed.js effect -->
-  <script>
-    const name = "Suraj Tiwari";
-    const typedName = document.getElementById("typed-name");
-    let index = 0;
-
-    function typeEffect() {
-      if (index < name.length) {
-        typedName.textContent += name.charAt(index);
-        index++;
-        setTimeout(typeEffect, 150);
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", typeEffect);
-  </script>
+    
+    <section id="projects">
+      <div class="section-header">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Some things I've built</p>
+      </div>
+      
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon">🏷️</div>
+            <div class="project-links">
+              <a href="https://github.com/surajktdev/RentFlex---Public" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-github"></i>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">RentFlex</h3>
+          <p class="project-description">
+            Multi-vendor rental marketplace platform enabling vendors and users to list, book, and manage rentals. Features include vendor onboarding, inventory management, booking engine with conflict detection, authentication with OAuth2/JWT, and payment integration.
+          </p>
+          <div class="tech-tags">
+            <span class="tag">Java</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">React</span>
+            <span class="tag">Docker</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">OAuth2</span>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon">📡</div>
+            <div class="project-links">
+              <span style="color: var(--text-dim)"><i class="bi bi-lock"></i></span>
+            </div>
+          </div>
+          <h3 class="project-title">SIM – IoT Processing System</h3>
+          <p class="project-description">
+            High-volume telemetry ingest and reporting system for aviation engine data. Implemented resilient Spring Boot services with validation pipelines, enrichment stages, and macro-enabled Excel reporting. Integrated with Fleet Modeling and Cost Systems.
+          </p>
+          <div class="tech-tags">
+            <span class="tag">Java</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">AWS</span>
+            <span class="tag">JUnit</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="contact">
+      <div class="contact-section">
+        <div class="contact-content">
+          <h2 class="contact-title">Let's Build Something Together</h2>
+          <p class="contact-description">
+            I'm open to backend and cloud-native opportunities. Let's connect!
+          </p>
+          <div class="contact-links">
+            <a href="mailto:surajdeveloper9@gmail.com" class="social-link">
+              <i class="bi bi-envelope"></i>
+              Email
+            </a>
+                        <a href="https://www.linkedin.com/in/surajtiwari9/" target="_blank" rel="noopener noreferrer" class="social-link">
+              <i class="bi bi-linkedin"></i>
+              LinkedIn
+            </a>
+            <a href="https://github.com/surajktdev" target="_blank" rel="noopener noreferrer" class="social-link">
+              <i class="bi bi-github"></i>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <footer>
+      &copy; 2025 Suraj Tiwari. All rights reserved.
+    </footer>
+    
+  </div> <!-- end container -->
 </body>
 </html>
-
