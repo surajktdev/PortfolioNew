@@ -931,11 +931,16 @@
   <!-- Typed.js initialization -->
   <script>
     const typed = new Typed('#typed-name', {
-      strings: ["Suraj Tiwari"],
-      typeSpeed: 100,
-      backSpeed: 50,
-      loop: false
+      strings: ["Suraj Tiwari"], // You can add more words if needed
+      typeSpeed: 80,             // slower typing speed
+      backSpeed: 50,             // slower deleting speed
+      backDelay: 2000,           // wait 2s before deleting
+      startDelay: 500,           // wait 0.5s before starting
+      loop: true,                // keep looping
+      showCursor: true,
+      cursorChar: '|'
     });
   </script>
+
 </body>
 </html>
