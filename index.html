@@ -4,102 +4,123 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Suraj Tiwari — Portfolio</title>
+
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
   <style>
-    /* ---------- Theme & basic reset ---------- */
+    /* -------------------- Theme: Dark Gray + Soft Cyan -------------------- */
     :root{
-      --bg-1:#041226; --bg-2:#071b2e; --accent:#00d4ff; --muted:#9aa7bf;
-      --glass:rgba(255,255,255,0.03); --glass-2:rgba(255,255,255,0.02);
-      --card-bg: rgba(6,14,25,0.62);
-      --radius:14px; --badge-bg: rgba(0,212,255,0.10);
-      --header-h:68px;
+      --bg-a:#0a0f14;       /* page background */
+      --bg-b:#0f1720;       /* card background */
+      --panel:#0d1419;      /* panel darker */
+      --accent:#37e0ff;     /* soft cyan */
+      --muted:#9bb0bf;
+      --glass: rgba(255,255,255,0.02);
+      --glass-2: rgba(255,255,255,0.03);
+      --radius:12px;
+      --header-h:72px;
+      --badge-bg: rgba(55,224,255,0.09);
+      --focus: 0 8px 30px rgba(55,224,255,0.08);
     }
+
+    /* Reset & base */
     *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#eaf6ff;background:linear-gradient(180deg,var(--bg-1),var(--bg-2));-webkit-font-smoothing:antialiased}
+    html,body{height:100%;background:linear-gradient(180deg,var(--bg-a),var(--bg-b));font-family:Inter, Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial;color:#eaf6ff;-webkit-font-smoothing:antialiased}
     a{color:var(--accent);text-decoration:none}
-    /* ---------- Topbar + progress ---------- */
-    #progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--accent),#6be2ff);z-index:1200;width:0}
-    header.topbar{position:fixed;top:0;left:0;right:0;height:var(--header-h);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);z-index:1100;padding:10px 20px;transition:transform .35s,box-shadow .35s}
-    header.topbar.inner{background:linear-gradient(180deg,rgba(5,10,18,0.55),rgba(5,10,18,0.4));box-shadow:0 6px 30px rgba(2,6,15,0.45)}
-    .inner-wrap{max-width:1160px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    img{max-width:100%;height:auto;display:block}
+
+    /* -------------------- Top bar & progress -------------------- */
+    #progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--accent),#79fbff);z-index:1400;width:0}
+    header.topbar{position:fixed;inset:0 0 auto 0;height:var(--header-h);display:flex;align-items:center;justify-content:center;padding:8px 20px;z-index:1300;backdrop-filter:blur(6px)}
+    header.topbar.inner{background:linear-gradient(180deg,rgba(10,15,20,0.5),rgba(10,15,20,0.35));box-shadow:0 6px 30px rgba(2,6,15,0.45);border-bottom:1px solid var(--glass-2)}
+    .inner-wrap{max-width:1180px;width:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:12px}
-    .brand .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#6be2ff);display:flex;align-items:center;justify-content:center;color:#022;font-weight:800}
-    .brand h1{font-size:16px;font-weight:700;color:#dffcff;margin:0;letter-spacing:-0.2px}
-    .contact-strip{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-    .contact-link{display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);font-weight:600;color:var(--muted);font-size:13px;transition:all .22s}
-    .contact-link i{color:var(--accent);font-size:16px;transition:transform .22s}
-    .contact-link:hover{transform:translateY(-4px);background:var(--accent);color:#06222a;box-shadow:0 6px 20px rgba(0,212,255,0.08)}
-    .contact-link:hover i{transform:scale(1.06);color:#06222a}
-    /* pulse for resume button */
-    .pulse{
-      animation: pulseGlow 2.2s ease-in-out infinite;
-    }
-    @keyframes pulseGlow{
-      0%{box-shadow:0 8px 20px rgba(0,212,255,0.04)}
-      50%{box-shadow:0 18px 40px rgba(0,212,255,0.1)}
-      100%{box-shadow:0 8px 20px rgba(0,212,255,0.04)}
-    }
-    /* ---------- main layout ---------- */
-    .wrap{max-width:1100px;margin:calc(var(--header-h) + 30px) auto 80px;padding:26px 20px;position:relative;z-index:5}
-    /* ---------- hero ---------- */
-    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-top:6px}
-    .profile-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:var(--radius);padding:28px;backdrop-filter:blur(8px);box-shadow:0 14px 50px rgba(2,6,20,0.62);border:1px solid rgba(255,255,255,0.03)}
-    .name{font-size:30px;font-weight:800;line-height:1;letter-spacing:-0.6px}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#8efaff);display:flex;align-items:center;justify-content:center;color:#042; font-weight:800}
+    .brand h1{font-size:16px;font-weight:700;color:#dffeff;margin:0;letter-spacing:-0.2px}
+    .contact-strip{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .contact-link{display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.02);font-weight:600;color:var(--muted);font-size:13px;transition:all .18s}
+    .contact-link i{color:var(--accent);font-size:16px;transition:transform .18s}
+    .contact-link:hover{transform:translateY(-4px);background:var(--accent);color:#032;box-shadow:var(--focus)}
+    .contact-link:hover i{transform:scale(1.05);color:#032}
+
+    /* pulse */
+    .pulse{animation:pulseGlow 2.2s ease-in-out infinite}
+    @keyframes pulseGlow{0%{box-shadow:0 8px 18px rgba(55,224,255,0.03)}50%{box-shadow:0 18px 40px rgba(55,224,255,0.08)}100%{box-shadow:0 8px 18px rgba(55,224,255,0.03)}}
+
+    /* -------------------- Layout -------------------- */
+    .wrap{max-width:1100px;margin:calc(var(--header-h) + 30px) auto 80px;padding:26px 20px;position:relative;z-index:10}
+    .grid-2{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
+
+    /* -------------------- Hero -------------------- */
+    .profile-card{background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border-radius:14px;padding:28px;border:1px solid var(--glass-2);box-shadow:0 18px 50px rgba(2,6,12,0.6)}
+    .name{font-family:Poppins,Inter;font-size:30px;font-weight:800;color:#f6ffff}
     .role{color:var(--accent);font-weight:700;margin-top:8px}
-    .summary{color:var(--muted);margin-top:14px;line-height:1.55}
-    .cta{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
-    .btn{padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:inherit;font-weight:700;cursor:pointer;transition:transform .22s,box-shadow .22s;display:inline-flex;align-items:center;gap:8px}
-    .btn-primary{background:linear-gradient(90deg,var(--accent),#6be2ff);color:#022;box-shadow:0 10px 30px rgba(0,212,255,0.07);border:0}
+    .summary{color:var(--muted);margin-top:12px;line-height:1.6}
+    .summary strong{color:#eafcff}
+    .cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;font-weight:700;cursor:pointer;transition:transform .18s}
     .btn:hover{transform:translateY(-4px)}
-    aside.info{padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.03)}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#8efaff);color:#022;border:0;box-shadow:0 10px 30px rgba(55,224,255,0.07)}
+
+    /* small tech bar under hero */
+    .tech-bar{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+    .tech-pill{background:var(--badge-bg);color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;border:1px solid rgba(55,224,255,0.05)}
+
+    /* aside */
+    .aside-card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));padding:18px;border-radius:12px;border:1px solid var(--glass-2)}
+    .aside-card h4{margin:0 0 6px 0}
     .meta{font-size:13px;color:var(--muted)}
-    /* ---------- timeline ---------- */
-    .timeline{margin-top:28px;display:flex;flex-direction:column;gap:12px}
-    .timeline-card{display:flex;gap:18px;padding:16px;border-radius:12px;background:var(--card-bg);border:1px solid var(--glass-2);align-items:flex-start;transition:transform .25s,box-shadow .25s}
-    .timeline-card:hover{transform:translateY(-6px);box-shadow:0 20px 45px rgba(2,8,24,0.5)}
-    .timeline-icon{width:64px;height:64px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--accent);flex-shrink:0}
+
+    /* -------------------- Timeline -------------------- */
+    .timeline{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+    .timeline-line{position:relative;padding-left:28px}
+    .timeline-card{position:relative;display:flex;gap:16px;padding:16px;border-radius:12px;background:var(--panel);border:1px solid rgba(255,255,255,0.018);align-items:flex-start;transition:transform .18s,box-shadow .18s}
+    .timeline-card:hover{transform:translateY(-6px);box-shadow:0 22px 50px rgba(2,6,12,0.6)}
+    .timeline-icon{width:56px;height:56px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:20px;flex-shrink:0}
     .timeline-content h4{margin:0 0 8px}
     .timeline-list{margin-top:8px;padding-left:18px;color:var(--muted)}
-    .tech-badges{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
-    .badge{background:var(--badge-bg);color:var(--accent);padding:6px 8px;border-radius:8px;font-weight:700;font-size:13px;border:1px solid rgba(0,212,255,0.06)}
-    /* ---------- skills ---------- */
-    .skills{padding:18px;border-radius:12px;background:linear-gradient(180deg,#07102655,#07102233);border:1px solid var(--glass-2);margin-top:24px}
-    .skills-category{margin-top:18px}
-    .skills-category h4{color:var(--accent);margin-bottom:10px;border-left:3px solid var(--accent);padding-left:8px}
-    .skills-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-    .skill-item{display:flex;align-items:center;gap:8px;padding:8px 14px;background:rgba(255,255,255,0.03);border-radius:8px;font-weight:700;border:1px solid rgba(255,255,255,0.04);transition:transform .22s,background .22s}
-    .skill-item i{font-size:16px;color:var(--accent)}
-    .skill-item:hover{transform:translateY(-5px);background:var(--accent);color:#06222a}
-    /* ---------- projects ---------- */
-    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}
-    .proj{padding:16px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid var(--glass-2);transition:transform .35s,box-shadow .35s}
-    .proj:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,8,24,0.5)}
-    .proj-head{display:flex;align-items:center;gap:12px}
-    .proj-icon{width:46px;height:46px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--accent)}
-    .proj .meta{margin-top:8px;color:var(--muted)}
-    .btn-small{font-size:13px;padding:7px 10px;background:rgba(255,255,255,0.04);border-radius:8px;border:1px solid rgba(255,255,255,0.05);display:inline-flex;gap:8px;align-items:center}
-    .btn-small:hover{background:var(--accent);color:#06222a}
-    /* ---------- contact & footer ---------- */
-    .contact{margin-top:28px;padding:18px;border-radius:12px;background:linear-gradient(180deg,#061020,#071022);border:1px solid var(--glass-2);display:flex;justify-content:space-between;gap:12px;align-items:center}
-    .chip{padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-size:14px}
-    footer{text-align:center;color:var(--muted);font-size:13px;margin-top:28px}
-    /* ---------- particles ---------- */
-    #particles{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-    .particle{position:absolute;border-radius:50%;background:linear-gradient(180deg,rgba(0,212,255,0.12),rgba(0,212,255,0.04));filter:blur(3px);opacity:.35;animation:float 24s linear infinite}
+    .timeline-list li{margin-bottom:8px}
+    .badge{background:var(--badge-bg);color:var(--accent);padding:6px 8px;border-radius:8px;font-weight:700;font-size:13px;border:1px solid rgba(55,224,255,0.06);margin-right:8px;margin-top:8px;display:inline-block}
+
+    /* -------------------- Skills -------------------- */
+    .skills{margin-top:22px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));padding:16px;border-radius:12px;border:1px solid var(--glass-2)}
+    .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .skill-card{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+    .skill-card h5{margin:0 0 8px 0;color:var(--accent)}
+    .skill-list{display:flex;flex-wrap:wrap;gap:8px}
+
+    /* -------------------- Projects -------------------- */
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px}
+    .proj{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid var(--glass-2);transition:transform .2s}
+    .proj-head{display:flex;gap:12px;align-items:center}
+    .proj-icon{width:46px;height:46px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:20px}
+    .proj .meta{color:var(--muted);margin-top:8px}
+    .timeline-list li{margin-bottom:8px}
+
+    /* -------------------- Contact / footer -------------------- */
+    .contact{margin-top:26px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid var(--glass-2);display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .chip{padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.02);font-size:14px}
+
+    /* -------------------- Particles -------------------- */
+    #particles{position:fixed;inset:0;z-index:0;pointer-events:none}
+    .particle{position:absolute;border-radius:50%;background:linear-gradient(180deg, rgba(55,224,255,0.12), rgba(55,224,255,0.04));filter:blur(2.8px);opacity:.32;animation:float 28s linear infinite}
     @keyframes float{from{transform:translateY(120vh) scale(.6)}to{transform:translateY(-20vh) scale(1.2)}}
-    /* ---------- responsive ---------- */
-    @media (max-width:980px){.hero{grid-template-columns:1fr}.projects{grid-template-columns:1fr}.contact{flex-direction:column;align-items:flex-start}.contact-strip{justify-content:center}}
+
+    /* -------------------- Responsive -------------------- */
+    @media (max-width:980px){.grid-2{grid-template-columns:1fr}.projects{grid-template-columns:1fr}.skills-grid{grid-template-columns:1fr}.contact{flex-direction:column;align-items:flex-start}.contact-strip{justify-content:center}}
     @media (max-width:560px){.brand h1{display:none}}
   </style>
 </head>
 <body>
-  <!-- progress -->
+
+  <!-- Scroll progress -->
   <div id="progress" aria-hidden="true"></div>
 
-  <!-- topbar -->
-  <header class="topbar inner" role="banner" aria-label="Contact bar">
+  <!-- Top bar -->
+  <header class="topbar inner" role="banner" aria-label="Primary contact bar">
     <div class="inner-wrap">
       <div class="brand" aria-hidden>
         <div class="logo">ST</div>
@@ -112,56 +133,70 @@
         <a class="contact-link" href="mailto:surajdeveloper9@gmail.com"><i class="bi bi-envelope"></i><span>Email</span></a>
         <a class="contact-link" href="tel:+917494020066"><i class="bi bi-telephone"></i><span>Phone</span></a>
         <a class="contact-link" href="https://wa.me/917494020066" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i><span>WhatsApp</span></a>
-        <!-- Resume (top) -->
-        <a class="contact-link pulse" href="assets/Suraj_Tiwari_Resume.pdf" download target="_blank" aria-label="Download resume"><i class="bi bi-download"></i><span>Resume</span></a>
+        <!-- Resume (header) -->
+        <a class="contact-link pulse" href="https://drive.google.com/file/d/1vt4Qadcj-szCNxz7XiY4xqv_qN2961dl/view?usp=sharing" download target="_blank" aria-label="Download resume"><i class="bi bi-download"></i><span>Resume</span></a>
       </nav>
     </div>
   </header>
 
-  <!-- particles -->
+  <!-- Particles (decorative) -->
   <div id="particles" aria-hidden="true"></div>
 
-  <main class="wrap" id="top">
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="intro">
-      <div class="profile-card" id="intro">
-        <div class="name">Suraj Tiwari — <span style="color:var(--accent)">Java Backend Developer</span></div>
-        <div class="role">Building <strong style="color:var(--accent)">reliable backend systems</strong> that scale</div>
-        <p class="summary">Backend-first engineer with ~3.6 years of experience designing resilient <strong>Spring Boot microservices</strong>, optimizing APIs, and building maintainable CI/CD workflows. I enjoy turning complex data flows into simple, robust, and observable systems.</p>
+  <!-- Page content -->
+  <main class="wrap" id="top" role="main">
 
-        <div class="cta" role="navigation" aria-label="Primary actions">
-          <a class="btn btn-primary" href="#projects">View Projects</a>
-          <a class="btn" href="mailto:surajdeveloper9@gmail.com">Email Me</a>
-          <!-- Resume (hero) -->
-          <a class="btn btn-primary pulse" href="assets/Suraj_Tiwari_Resume.pdf" download target="_blank" aria-label="Download resume">
-            <i class="bi bi-download"></i> Download Resume
-          </a>
+    <!-- HERO + ASIDE -->
+    <div class="grid-2">
+      <section class="profile-card" aria-labelledby="intro">
+        <div id="intro">
+          <div class="name">Suraj Tiwari — <span class="role">Java Backend Developer</span></div>
+          <p class="summary" style="margin-top:8px">
+            Backend-first engineer with <strong>~3.6 years</strong> of experience designing and developing <strong>scalable, secure, and maintainable applications</strong> using <strong>Java</strong>, <strong>Spring Boot</strong>, and <strong>Microservices</strong>. Skilled in building resilient <strong>REST APIs</strong>, implementing cloud-native solutions with <strong>AWS</strong>, <strong>Docker</strong>, and <strong>CI/CD pipelines</strong>, and ensuring quality through <strong>unit & integration testing</strong> (JUnit, Mockito). Committed to continuous learning and currently expanding expertise in <strong>system design</strong>, <strong>performance optimization</strong>, and <strong>DevOps</strong> practices to deliver reliable backend solutions.
+          </p>
+
+          <div class="cta" role="navigation" aria-label="Primary actions" style="margin-top:14px">
+            <a class="btn btn-primary" href="#projects" title="View Projects">View Projects</a>
+            <a class="btn" href="mailto:surajdeveloper9@gmail.com" title="Email Suraj">Email Me</a>
+            <a class="btn btn-primary pulse" href="https://drive.google.com/file/d/1vt4Qadcj-szCNxz7XiY4xqv_qN2961dl/view?usp=sharing" download target="_blank" title="Download Resume"><i class="bi bi-download"></i> Download Resume</a>
+          </div>
+
+          <div class="tech-bar" aria-hidden>
+            <span class="tech-pill">Java</span>
+            <span class="tech-pill">Spring Boot</span>
+            <span class="tech-pill">Microservices</span>
+            <span class="tech-pill">AWS</span>
+            <span class="tech-pill">Docker</span>
+          </div>
         </div>
+      </section>
 
-        <div style="margin-top:12px;font-size:13px;color:var(--muted)">Snapshot: <strong>Java • Spring Boot • AWS • Docker</strong></div>
-      </div>
-
-      <aside class="info" aria-labelledby="snapshot">
-        <h3 id="snapshot" style="margin:0 0 8px 0">Quick Info</h3>
-        <div class="meta"><strong>Experience:</strong> 3.6 years</div>
-        <div style="margin-top:12px;"><strong>Contact</strong><div class="meta">surajdeveloper9@gmail.com<br>+91 74940 20066</div></div>
-        <div style="margin-top:12px"><strong>Education</strong><div class="meta">BCA — MARWAR BUSINESS SCHOOL (DDU Gorakhpur)</div></div>
+      <aside class="aside-card" aria-labelledby="snapshot">
+        <h4 id="snapshot">Snapshot</h4>
+        <div class="meta" style="margin-top:6px"><strong>Experience:</strong> 3.6 years</div>
+        <div style="margin-top:12px">
+          <h4 style="margin:0 0 6px 0">Contact</h4>
+          <div class="meta">surajdeveloper9@gmail.com<br>+91 74940 20066</div>
+        </div>
+        <div style="margin-top:12px">
+          <h4 style="margin:0 0 6px 0">Education</h4>
+          <div class="meta">BCA — MARWAR BUSINESS SCHOOL (DDU Gorakhpur)</div>
+        </div>
       </aside>
-    </section>
+    </div>
 
     <!-- TIMELINE -->
     <section class="timeline" id="experience" aria-labelledby="experience-heading">
-      <h2 id="experience-heading" style="font-size:20px;margin-bottom:8px">Career Timeline</h2>
+      <h3 id="experience-heading" style="font-size:18px;margin-bottom:10px">Career Timeline</h3>
 
       <!-- Infosys -->
-      <article class="timeline-card" role="article" aria-labelledby="infosys-title">
-        <div class="timeline-icon">🏢</div>
+      <article class="timeline-card" aria-labelledby="infosys-title">
+        <div class="timeline-icon" aria-hidden>🏢</div>
         <div class="timeline-content">
           <h4 id="infosys-title"><strong>Associate Consultant</strong> — Infosys <span style="color:var(--muted)">· Jul 2025 – Present</span></h4>
-          <div class="meta"><em>Noida, Uttar Pradesh</em></div>
-          <ul class="timeline-list">
+          <div class="meta" style="margin-top:6px"><em>Noida, Uttar Pradesh</em></div>
+          <ul class="timeline-list" style="margin-top:10px">
             <li>Recently joined the <strong>Java competency team</strong>, contributing to <strong>Spring Boot microservices</strong> and <strong>REST API</strong> development.</li>
-            <li>Gaining hands-on exposure to <strong>Docker</strong> deployments, <strong>AWS</strong> cloud solutions, and <strong>CI/CD</strong> pipelines under guidance from senior team members.</li>
+            <li>Gaining hands-on exposure to <strong>Docker</strong> deployments, <strong>AWS</strong> cloud solutions, and <strong>CI/CD</strong> pipelines under guidance from senior engineers.</li>
           </ul>
           <div class="tech-badges" aria-hidden>
             <span class="badge">Java</span><span class="badge">Spring Boot</span><span class="badge">Docker</span><span class="badge">AWS</span><span class="badge">CI/CD</span>
@@ -169,22 +204,28 @@
         </div>
       </article>
 
-      <!-- TCS -->
-      <article class="timeline-card" role="article" aria-labelledby="tcs-title">
-        <div class="timeline-icon">💼</div>
+      <!-- TCS (rephrased, honest, highlighted) -->
+      <article class="timeline-card" aria-labelledby="tcs-title">
+        <div class="timeline-icon" aria-hidden>💼</div>
         <div class="timeline-content">
           <h4 id="tcs-title"><strong>System Engineer</strong> — Tata Consultancy Services <span style="color:var(--muted)">· Jan 2022 – Jun 2025</span></h4>
-          <div class="meta"><em>Gandhinagar, Gujarat</em></div>
-          <ul class="timeline-list">
-            <li>Designed and developed scalable web applications using <strong>Java</strong>, <strong>Spring Boot</strong>, <strong>Spring Security</strong>, and <strong>PostgreSQL</strong>, following SOLID principles.</li>
-            <li>Optimized API performance (avg. response time ↓ <strong>25%</strong>) using caching strategies and query tuning.</li>
-            <li>Resolved <strong>50+</strong> security vulnerabilities using <strong>Checkmarx</strong> and <strong>SonarQube</strong>, achieving enterprise compliance.</li>
-            <li>Worked with AWS (EC2, S3, SQS, CloudFormation, API Gateway) and contributed to CI/CD pipeline updates.</li>
-            <li>Maintained <strong>90%+</strong> unit test coverage using <strong>JUnit</strong> &amp; <strong>Mockito</strong>.</li>
+          <div class="meta" style="margin-top:6px"><em>Gandhinagar, Gujarat</em></div>
+
+          <ul class="timeline-list" style="margin-top:10px">
+            <li>Designed and developed <strong>scalable and secure web applications</strong> using <strong>Java</strong>, <strong>Spring Boot</strong>, <strong>Spring Security</strong>, and <strong>PostgreSQL</strong>, following SOLID principles and clean architecture.</li>
+
+            <li>Collaborated with senior engineers to improve API efficiency and identify opportunities for future <strong>performance optimization</strong> via caching and query review.</li>
+
+            <li>Resolved <strong>50+</strong> security vulnerabilities using <strong>Checkmarx</strong> and <strong>SonarQube</strong>, achieving enterprise compliance with security standards.</li>
+
+            <li>Worked with AWS services — <strong>EC2</strong>, <strong>S3</strong>, <strong>SQS</strong>, <strong>CloudFormation</strong>, and <strong>API Gateway</strong> — and supported the creation/updating of CI/CD pipelines.</li>
+
+            <li>Maintained <strong>90%+</strong> unit test coverage using <strong>JUnit</strong> and <strong>Mockito</strong>, ensuring reliability and test-driven confidence on releases.</li>
           </ul>
+
           <div class="tech-badges" aria-hidden>
-            <span class="badge">Java</span><span class="badge">Spring Boot</span><span class="badge">Spring Security</span><span class="badge">PostgreSQL</span><span class="badge">Checkmarx</span>
-            <span class="badge">SonarQube</span><span class="badge">AWS</span><span class="badge">JUnit</span><span class="badge">Mockito</span>
+            <span class="badge">Java</span><span class="badge">Spring Boot</span><span class="badge">Spring Security</span><span class="badge">PostgreSQL</span>
+            <span class="badge">Checkmarx</span><span class="badge">SonarQube</span><span class="badge">AWS</span><span class="badge">JUnit</span><span class="badge">Mockito</span>
           </div>
         </div>
       </article>
@@ -192,84 +233,78 @@
 
     <!-- SKILLS -->
     <section class="skills" id="skills" aria-labelledby="skills-heading">
-      <h2 id="skills-heading" style="font-size:20px;margin-bottom:8px">Technical Skills</h2>
+      <h3 id="skills-heading" style="font-size:18px;margin-top:20px;margin-bottom:10px">Technical Skills</h3>
 
-      <div class="skills-category">
-        <h4>Programming Languages</h4>
-        <div class="skills-list" role="list">
-          <div class="skill-item" role="listitem"><i class="bi bi-cup-hot"></i>Java</div>
-          <div class="skill-item" role="listitem"><i class="bi bi-filetype-py"></i>Python</div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h5>Languages</h5>
+          <div class="skill-list" role="list">
+            <span class="badge" role="listitem">Java</span>
+            <span class="badge" role="listitem">Python</span>
+          </div>
         </div>
-      </div>
 
-      <div class="skills-category">
-        <h4>Frameworks & Tools</h4>
-        <div class="skills-list" role="list">
-          <div class="skill-item" role="listitem"><i class="bi bi-lightning"></i>Spring Boot</div>
-          <div class="skill-item" role="listitem"><i class="bi bi-shield-shaded"></i>Spring Security</div>
-          <div class="skill-item" role="listitem"><i class="bi bi-diagram-3"></i>Microservices</div>
-          <div class="skill-item" role="listitem"><i class="bi bi-globe"></i>REST APIs</div>
-          <div class="skill-item" role="listitem"><i class="bi bi-file-earmark-text"></i>Swagger</div>
-          <div class="skill-item" role="listitem"><i class="bi bi-send-check"></i>Postman</div>
+        <div class="skill-card">
+          <h5>Frameworks & Tools</h5>
+          <div class="skill-list" role="list">
+            <span class="badge">Spring Boot</span>
+            <span class="badge">Spring Security</span>
+            <span class="badge">Microservices</span>
+            <span class="badge">REST APIs</span>
+            <span class="badge">Swagger</span>
+            <span class="badge">Postman</span>
+          </div>
         </div>
-      </div>
 
-      <div class="skills-category">
-        <h4>DevOps & Cloud</h4>
-        <div class="skills-list" role="list">
-          <div class="skill-item" role="listitem"><i class="bi bi-cloud"></i>AWS</div>
-          <div class="skill-item" role="listitem"><i class="bi bi-box-seam"></i>Docker</div>
-          <div class="skill-item" role="listitem"><i class="bi bi-diagram-3-fill"></i>Kubernetes</div>
-          <div class="skill-item" role="listitem"><i class="bi bi-gear"></i>Jenkins</div>
-          <div class="skill-item" role="listitem"><i class="bi bi-shuffle"></i>CI/CD</div>
+        <div class="skill-card">
+          <h5>DevOps & Cloud</h5>
+          <div class="skill-list" role="list">
+            <span class="badge">AWS</span>
+            <span class="badge">Docker</span>
+            <span class="badge">Kubernetes</span>
+            <span class="badge">Jenkins</span>
+            <span class="badge">CI/CD</span>
+          </div>
         </div>
-      </div>
 
-      <div class="skills-category">
-        <h4>Database & Testing</h4>
-        <div class="skills-list" role="list">
-          <div class="skill-item" role="listitem"><i class="bi bi-database"></i>PostgreSQL</div>
-          <div class="skill-item" role="listitem"><i class="bi bi-database"></i>MySQL</div>
-          <div class="skill-item" role="listitem"><i class="bi bi-bug"></i>JUnit</div>
-          <div class="skill-item" role="listitem"><i class="bi bi-bug-fill"></i>Mockito</div>
-        </div>
-      </div>
-
-      <div class="skills-category">
-        <h4>Version Control & Others</h4>
-        <div class="skills-list" role="list">
-          <div class="skill-item" role="listitem"><i class="bi bi-git"></i>Git</div>
-          <div class="skill-item" role="listitem"><i class="bi bi-journal-code"></i>Swagger (Docs)</div>
-          <div class="skill-item" role="listitem"><i class="bi bi-send-check"></i>Postman</div>
+        <div class="skill-card">
+          <h5>Database & Testing</h5>
+          <div class="skill-list" role="list">
+            <span class="badge">PostgreSQL</span>
+            <span class="badge">MySQL</span>
+            <span class="badge">JUnit</span>
+            <span class="badge">Mockito</span>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- PROJECTS -->
     <section id="projects" aria-labelledby="projects-heading">
-      <h2 id="projects-heading" style="font-size:20px;margin-top:18px;margin-bottom:8px">Highlighted Projects</h2>
+      <h3 id="projects-heading" style="font-size:18px;margin-top:22px;margin-bottom:10px">Highlighted Projects</h3>
       <div class="projects" role="list">
+
         <!-- RentFlex -->
         <article class="proj" role="listitem" aria-labelledby="rentflex-title">
           <div class="proj-head">
             <div class="proj-icon">🏷️</div>
             <div>
               <h4 id="rentflex-title"><strong>RentFlex — Multi-Vendor Rental Platform (Ongoing)</strong></h4>
-              <div class="meta">Centralised multi-vendor platform for listing, booking, and managing rentals (tools, gadgets, vehicles).</div>
+              <div class="meta">Centralised multi-vendor marketplace enabling vendors and users to list, book, and manage rentals (tools, gadgets, vehicles).</div>
             </div>
           </div>
 
-          <p class="meta" style="margin-top:8px"><strong>Problem:</strong> Fragmented rental listings, manual booking processes, and inconsistent vendor workflows. RentFlex centralises listing, booking, scheduling, payments and vendor dashboards.</p>
+          <p class="meta" style="margin-top:8px"><strong>Problem:</strong> Fragmented rental listings and manual booking processes that limit utilization and create vendor/user friction. RentFlex centralises listing, availability, booking, payments, and analytics.</p>
 
           <p class="meta"><strong>Key Features:</strong></p>
           <ul class="timeline-list">
-            <li>Multi-vendor onboarding and inventory management (vendors manage their catalogs).</li>
-            <li>Category-based item listings with availability calendar and location filters.</li>
-            <li>Booking & scheduling engine with conflict detection and time-slot management.</li>
-            <li>Secure authentication & authorization (OAuth2 / JWT) and role-based access (vendor/admin/user).</li>
-            <li>Order management, invoicing, and rental lifecycle tracking.</li>
-            <li>Notifications system (email/SMS/push - planned) and admin dashboard for monitoring.</li>
-            <li>Payment gateway integration (planned) and analytics for vendor performance.</li>
+            <li>Multi-vendor onboarding and inventory management (vendors manage catalogs & pricing).</li>
+            <li>Category-based item listing with availability calendar, geo filters, and search.</li>
+            <li>Booking & scheduling engine with conflict detection, time-slot management and booking lifecycle states.</li>
+            <li>Authentication & RBAC with <strong>OAuth2 / JWT</strong> for vendor/user/admin roles.</li>
+            <li>Order management, invoicing, and rental lifecycle tracking (book → pickup → return → settle).</li>
+            <li>Notifications framework (email/SMS/push — planned) and admin dashboard for vendor insights.</li>
+            <li>Payment gateway integration and analytics for vendor performance (planned enhancements).</li>
           </ul>
 
           <p class="meta" style="margin-top:8px"><strong>Tech Stack:</strong> Java · Spring Boot (Microservices) · React · Docker · Kubernetes · Kafka · RabbitMQ · PostgreSQL · OAuth2</p>
@@ -285,18 +320,18 @@
             <div class="proj-icon">📡</div>
             <div>
               <h4 id="sim-title"><strong>SIM — Real-time IoT Processing</strong></h4>
-              <div class="meta">Processes telemetry from aviation engines and generates operational reports and integrations.</div>
+              <div class="meta">High-volume telemetry ingest and reporting for aviation engine data with downstream integrations.</div>
             </div>
           </div>
 
-          <p class="meta" style="margin-top:8px"><strong>Description:</strong> Built backend systems using <strong>Java</strong> and <strong>Spring Boot</strong>, integrated with <strong>AWS</strong> to process real-time IoT telemetry. Designed ingestion pipelines, validation, enrichment, storage, and macro-enabled Excel report generation. Integrated with Fleet Modeling & Cost Systems.</p>
+          <p class="meta" style="margin-top:8px"><strong>Description:</strong> Implemented backend systems using <strong>Java</strong> and <strong>Spring Boot</strong>, integrating with <strong>AWS</strong> to ingest and process real-time telemetry. Designed validation and enrichment pipelines, storage, and macro-enabled Excel report generation. Integrated outputs with Fleet Modeling and Cost Systems.</p>
 
           <p class="meta"><strong>Key Features:</strong></p>
           <ul class="timeline-list">
-            <li>Designed & optimized resilient Spring Boot services with MySQL for ingestion and processing of telemetry streams.</li>
-            <li>Built pipeline stages to validate, enrich, and route telemetry to storage and reporting modules.</li>
-            <li>Implemented macro-enabled Excel reporting and integrations with Fleet Modeling and Cost Systems.</li>
-            <li>Added unit tests and quality checks (JUnit) and used SonarQube for code quality checks.</li>
+            <li>Resilient Spring Boot services with MySQL for ingestion, validation and processing of telemetry streams.</li>
+            <li>Pipeline stages for validation, enrichment, routing, and storage to support reporting and integrations.</li>
+            <li>Macro-enabled Excel reporting for stakeholders; integrated with Fleet Modeling and Cost Systems.</li>
+            <li>Unit & integration tests (JUnit); SonarQube used for code quality checks and security scanning.</li>
           </ul>
 
           <p class="meta" style="margin-top:8px"><strong>Tech Stack:</strong> Java · Spring Boot · MySQL · AWS · JUnit · Git · Swagger · SonarQube</p>
@@ -308,11 +343,11 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- Contact -->
     <section class="contact" aria-labelledby="contact-heading">
       <div>
-        <h3 id="contact-heading">Let's build something <span style="color:var(--accent)">impactful</span></h3>
-        <div class="meta">Open to <strong>backend</strong> and <strong>cloud-native</strong> roles.</div>
+        <h4 id="contact-heading">Let's build something <span style="color:var(--accent)">impactful</span></h4>
+        <div class="meta">Open to backend and cloud-native opportunities.</div>
         <div style="margin-top:12px" class="links">
           <a class="chip" href="mailto:surajdeveloper9@gmail.com">Email</a>
           <a class="chip" href="https://www.linkedin.com/in/suraj-kumar-tiwati-javadev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -326,58 +361,57 @@
       </div>
     </section>
 
-    <footer>© Suraj Tiwari — Built with <strong>Code in motion.</strong></footer>
+    <footer style="margin-top:28px;text-align:center;color:var(--muted);font-size:13px">© Suraj Tiwari — Built with care, code & GSAP.</footer>
   </main>
 
-  <!-- GSAP + scripts -->
+  <!-- GSAP + Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script>
-    /* ---------- Scroll progress ---------- */
+    // Scroll progress
     const progress = document.getElementById('progress');
     function updateProgress(){
-      const h = document.documentElement;
-      const st = h.scrollTop || document.body.scrollTop;
-      const sh = h.scrollHeight - h.clientHeight;
-      const pct = (st/sh)*100 || 0;
+      const doc = document.documentElement;
+      const st = doc.scrollTop || document.body.scrollTop;
+      const sh = doc.scrollHeight - doc.clientHeight;
+      const pct = sh ? (st/sh)*100 : 0;
       progress.style.width = pct + '%';
     }
     document.addEventListener('scroll', updateProgress, {passive:true});
     updateProgress();
 
-    /* ---------- Particles ---------- */
+    // Particles
     const particleContainer = document.getElementById('particles');
-    for(let i=0;i<36;i++){
+    for(let i=0;i<34;i++){
       const p = document.createElement('div');
       p.className = 'particle';
-      const size = Math.random()*18 + 6;
+      const size = Math.random()*14 + 6;
       p.style.width = p.style.height = size + 'px';
       p.style.left = Math.random()*100 + '%';
       p.style.top = Math.random()*100 + '%';
-      p.style.animationDelay = Math.random()*20 + 's';
-      p.style.opacity = 0.12 + Math.random()*0.36;
+      p.style.animationDelay = Math.random()*30 + 's';
+      p.style.opacity = 0.09 + Math.random()*0.36;
       particleContainer.appendChild(p);
     }
-    // parallax particles
     document.addEventListener('mousemove', e=>{
       const x = (e.clientX/window.innerWidth - 0.5) * 14;
       const y = (e.clientY/window.innerHeight - 0.5) * 14;
       particleContainer.style.transform = `translate(${x}px, ${y}px)`;
     });
 
-    /* ---------- GSAP reveals ---------- */
+    // GSAP reveals
     gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray('.profile-card, .timeline-card, .skills, .proj, .contact, .info').forEach((el,i)=>{
-      gsap.from(el, {y:28, opacity:0, duration:0.8, delay:i*0.06, ease:'power3.out', scrollTrigger:{trigger:el, start:'top 92%'}});
-    });
-    // skill bounce
-    gsap.utils.toArray('.skill-item').forEach((el,i)=>{
-      gsap.from(el, {scale:0.7, opacity:0, y:18, duration:0.6, delay:i*0.03, ease:'back.out(1.4)', scrollTrigger:{trigger:el, start:'top 92%'}});
-      const icon = el.querySelector('i');
-      if(icon) gsap.to(icon, {scale:1.3, repeat:1, yoyo:true, duration:0.45, delay:i*0.03, scrollTrigger:{trigger:el, start:'top 92%'}});
+    const revealItems = document.querySelectorAll('.profile-card, .timeline-card, .skills, .proj, .contact, .aside-card');
+    gsap.utils.toArray(revealItems).forEach((el,i)=>{
+      gsap.from(el, {y:26, opacity:0, duration:0.85, delay: i*0.06, ease:'power3.out', scrollTrigger:{trigger:el, start:'top 92%'}});
     });
 
-    /* ---------- topbar hide on scroll ---------- */
+    // skill bounce
+    gsap.utils.toArray('.skill-card, .tech-pill, .badge').forEach((el, i)=>{
+      gsap.from(el, {scale:0.9, opacity:0, y:10, duration:0.5, delay: i*0.02, ease:'back.out(1.4)', scrollTrigger:{trigger:el, start:'top 92%'}});
+    });
+
+    // topbar hide on scroll down
     let lastScroll = 0;
     const topbar = document.querySelector('header.topbar');
     window.addEventListener('scroll', () => {
@@ -390,7 +424,7 @@
       lastScroll = st <= 0 ? 0 : st;
     }, {passive:true});
 
-    /* Respect reduced motion settings */
+    // respect reduced motion
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
       gsap.globalTimeline.timeScale(2);
     }
