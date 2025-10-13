@@ -645,6 +645,22 @@
   </style>
 </head>
 <body>
+  <script>
+    const name = "Suraj Tiwari";
+    const typedName = document.getElementById("typed-name");
+    let index = 0;
+  
+    function type() {
+      if (index < name.length) {
+        typedName.innerHTML += name.charAt(index);
+        index++;
+        setTimeout(type, 150); // typing speed (ms)
+      }
+    }
+  
+    window.onload = type;
+  </script>
+
   <div class="grid-bg"></div>
   
   <nav>
@@ -665,9 +681,10 @@
       <div class="hero-content">
         <div class="hero-tag">🚀 Available for opportunities</div>
         <h1>
-          Hi, I'm <span class="gradient-text">Suraj Tiwari</span><br>
+          Hi, I'm <span class="gradient-text" id="typed-name"></span><br>
           Backend Developer
         </h1>
+
         <p class="hero-description">
           Building scalable, secure backend systems with Java, Spring Boot, and cloud technologies. 3.6 years of experience crafting robust REST APIs and microservices.
         </p>
@@ -829,6 +846,17 @@
             <span class="skill-item">Mockito</span>
           </div>
         </div>
+
+        <div class="skill-category">
+          <h3><i class="bi bi-box"></i> Tools & API</h3>
+          <div class="skill-list">
+            <span class="skill-item">Swagger</span>
+            <span class="skill-item">Postman</span>
+            <span class="skill-item">Checkmarx</span>
+            <span class="skill-item">Git/GitHub</span>
+          </div>
+        </div>
+
       </div>
     </section>
     
