@@ -945,10 +945,12 @@
         // Hamburger toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('nav-links');
-
+        
         hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('mobile-active');
+            navLinks.classList.toggle('active'); // match CSS
+            hamburger.classList.toggle('open');   // optional: animate hamburger
         });
+
     </script>
 </body>
 
