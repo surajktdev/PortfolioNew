@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Suraj Tiwari — Backend Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <style>
-        /* ===================== Variables ===================== */
         :root {
             --bg: #0a0a0f;
             --surface: #141419;
@@ -25,7 +24,6 @@
             --gradient: linear-gradient(135deg, #00ff88, #00d4ff);
         }
 
-        /* ===================== Base ===================== */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -37,14 +35,10 @@
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        a {
-            text-decoration: none;
-        }
-
-        /* ===================== Grid Background ===================== */
         .grid-bg {
             position: fixed;
             inset: 0;
@@ -66,7 +60,6 @@
             }
         }
 
-        /* ===================== Navbar ===================== */
         nav {
             position: fixed;
             top: 0;
@@ -76,6 +69,7 @@
             background: rgba(10, 10, 15, 0.8);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
+            transition: transform 0.3s ease;
         }
 
         .nav-content {
@@ -93,6 +87,7 @@
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links {
@@ -103,9 +98,14 @@
 
         .nav-links a {
             color: var(--text-dim);
+            text-decoration: none;
             font-weight: 500;
-            position: relative;
             transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
         }
 
         .nav-links a::after {
@@ -119,26 +119,26 @@
             transition: width 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
         .nav-links a:hover::after {
             width: 100%;
         }
 
+        /* Hamburger Button */
         .menu-btn {
             display: none;
             flex-direction: column;
+            justify-content: center;
             gap: 5px;
             cursor: pointer;
+            z-index: 1100;
         }
 
         .menu-btn span {
             width: 25px;
             height: 3px;
             background: var(--text-dim);
-            transition: all 0.3s;
+            border-radius: 2px;
+            transition: all 0.3s ease;
         }
 
         .menu-btn.active span:nth-child(1) {
@@ -153,6 +153,7 @@
             transform: rotate(-45deg) translate(6px, -6px);
         }
 
+        /* Responsive Navbar */
         @media (max-width: 968px) {
             .nav-links {
                 position: fixed;
@@ -163,21 +164,28 @@
                 background: var(--surface);
                 flex-direction: column;
                 align-items: flex-start;
-                padding: 4rem 1rem;
+                padding: 4rem 2rem;
                 gap: 2rem;
                 transition: right 0.3s ease;
+                z-index: 1050;
             }
 
             .nav-links.active {
                 right: 0;
+                box-shadow: -8px 0 30px rgba(0, 0, 0, 0.5);
             }
 
             .menu-btn {
                 display: flex;
             }
+
+            .nav-links a {
+                font-size: 1.25rem;
+                width: 100%;
+            }
         }
 
-        /* ===================== Sections ===================== */
+        /* --- Your existing styles --- */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -186,19 +194,6 @@
             z-index: 1;
         }
 
-        section {
-            padding: 6rem 0;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* ===================== Hero ===================== */
         .hero {
             min-height: 80vh;
             display: flex;
@@ -225,14 +220,8 @@
         }
 
         @keyframes pulse {
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.7;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
         .hero h1 {
@@ -246,6 +235,8 @@
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
         }
 
         .hero-description {
@@ -265,10 +256,10 @@
             padding: 1rem 2rem;
             border-radius: 12px;
             font-weight: 600;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            text-decoration: none;
             transition: all 0.3s;
             border: 2px solid transparent;
         }
@@ -295,118 +286,64 @@
             color: var(--accent);
         }
 
-        .hero-visual {
-            flex: 0 0 400px;
-            height: 400px;
+        .hero-visual { flex: 0 0 400px; height: 400px; position: relative; }
+        .code-block { position: absolute; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); animation: float 6s ease-in-out infinite; }
+                .code-block:nth-child(1) { top: 0; left: 0; animation-delay: 0s; }
+        .code-block:nth-child(2) { top: 50px; right: 0; animation-delay: 2s; }
+        .code-block:nth-child(3) { bottom: 0; left: 50px; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Other sections like stats, experience, skills, projects, contact */
+        section {
+            margin-bottom: 6rem;
+        }
+
+        h2.section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
             position: relative;
         }
 
-        @media (max-width: 968px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-visual {
-                display: none;
-            }
-
-            .hero-cta {
-                justify-content: center;
-            }
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin-top: 0.5rem;
+            border-radius: 2px;
         }
 
-        /* ===================== About ===================== */
-        .about p {
-            max-width: 700px;
-            margin-bottom: 1rem;
-            color: var(--text-dim);
-        }
-
-        /* ===================== Experience ===================== */
-        .experience-item {
-            margin-bottom: 2rem;
-        }
-
-        .experience-item h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .experience-item span {
-            font-size: 0.875rem;
-            color: var(--text-dim);
-        }
-
-        /* ===================== Skills ===================== */
-        .skills-list {
+        .stats, .experience, .skills, .projects, .contact {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .skill {
-            background: var(--surface-2);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            color: var(--accent);
-            font-weight: 500;
-        }
-
-        /* ===================== Projects ===================== */
-        .projects-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
 
-        .project {
-            background: var(--surface-2);
-            padding: 1.5rem;
-            border-radius: 12px;
-            transition: transform 0.3s;
-        }
-
-        .project:hover {
-            transform: translateY(-5px);
-        }
-
-        .project h4 {
-            margin-bottom: 0.5rem;
-        }
-
-        .project p {
-            color: var(--text-dim);
-        }
-
-        /* ===================== Contact ===================== */
-        .contact form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            max-width: 500px;
-        }
-
-        .contact input,
-        .contact textarea {
-            padding: 1rem;
-            border-radius: 8px;
+        .card {
+            background: var(--surface);
             border: 1px solid var(--border);
-            background: var(--surface-2);
-            color: var(--text);
+            border-radius: 12px;
+            padding: 1.5rem;
+            flex: 1 1 250px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .contact button {
-            width: max-content;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px var(--accent-glow);
         }
 
-        /* ===================== Footer ===================== */
         footer {
-            text-align: center;
             padding: 2rem;
-            color: var(--text-dim);
+            text-align: center;
             border-top: 1px solid var(--border);
-            margin-top: 4rem;
+            color: var(--text-dim);
         }
     </style>
 </head>
@@ -417,121 +354,114 @@
     <!-- Navbar -->
     <nav>
         <div class="nav-content">
-            <div class="logo">ST</div>
-            <div class="menu-btn" id="menu-btn"><span></span><span></span><span></span></div>
+            <div class="logo">Suraj Tiwari</div>
             <div class="nav-links" id="nav-links">
+                <a href="#hero">Home</a>
                 <a href="#about">About</a>
                 <a href="#experience">Experience</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
             </div>
+            <div class="menu-btn" id="menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <div class="container">
-        <section class="hero" id="home">
+    <!-- Hero Section -->
+    <div class="container" id="hero">
+        <div class="hero">
             <div class="hero-content">
-                <div class="hero-tag">🚀 Available for opportunities</div>
-                <h1>Hi, I'm <span id="typed-name" class="gradient-text"></span><br>Backend Developer</h1>
-                <p class="hero-description">Building scalable, secure backend systems with Java, Spring Boot, and cloud
-                    technologies. 3.6 years of experience crafting robust REST APIs and microservices.</p>
+                <span class="hero-tag">Backend Developer</span>
+                <h1>Hi, I’m <span class="gradient-text">Suraj Tiwari</span></h1>
+                <p class="hero-description">I design and develop scalable backend solutions using Java, Spring Boot, and Microservices architecture.</p>
                 <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">View My Work <i class="bi bi-arrow-right"></i></a>
-                    <a href="assets/Suraj_Tiwari_Resume.pdf" download class="btn btn-secondary"><i
-                            class="bi bi-download"></i> Download Resume</a>
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
                 </div>
             </div>
-        </section>
-
-        <!-- About -->
-        <section id="about" class="about">
-            <h2>About Me</h2>
-            <p>I am a Backend Developer with 3.6 years of experience in designing and implementing scalable backend
-                systems using Java, Spring Boot, Microservices, and cloud technologies.</p>
-            <p>I enjoy solving complex problems, optimizing performance, and delivering high-quality software
-                solutions.</p>
-        </section>
-
-        <!-- Experience -->
-        <section id="experience" class="experience">
-            <h2>Experience</h2>
-            <div class="experience-item">
-                <h3>Java Backend Developer — TCS</h3>
-                <span>Oct 2022 – Present</span>
-                <p>Worked on developing scalable microservices and REST APIs using Java and Spring Boot.</p>
+            <div class="hero-visual">
+                <div class="code-block">Java, Spring Boot</div>
+                <div class="code-block">Microservices, REST APIs</div>
+                <div class="code-block">PostgreSQL, AWS</div>
             </div>
-        </section>
-
-        <!-- Skills -->
-        <section id="skills" class="skills">
-            <h2>Skills</h2>
-            <div class="skills-list">
-                <div class="skill">Java 8+</div>
-                <div class="skill">Spring Boot</div>
-                <div class="skill">Microservices</div>
-                <div class="skill">REST API</div>
-                <div class="skill">PostgreSQL</div>
-                <div class="skill">AWS</div>
-                <div class="skill">Docker & Kubernetes</div>
-            </div>
-        </section>
-
-        <!-- Projects -->
-        <section id="projects" class="projects">
-            <h2>Projects</h2>
-            <div class="projects-list">
-                <div class="project">
-                    <h4>Multi-Vendor Rental Platform</h4>
-                    <p>Built scalable rental marketplace with microservices architecture using Java and Spring Boot.</p>
-                </div>
-                <div class="project">
-                    <h4>Inventory & Billing System</h4>
-                    <p>Developed backend system for inventory management and billing using Spring Boot and PostgreSQL.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact" class="contact">
-            <h2>Contact</h2>
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
-        </section>
-
+        </div>
     </div>
 
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience">
+            <div class="card">
+                <h3>Java Backend Developer</h3>
+                <p>TCS | Oct 2022 – Present</p>
+                <ul>
+                    <li>Developed scalable microservices using Spring Boot and Java 17.</li>
+                    <li>Optimized API response times by 25% using caching and query optimization.</li>
+                    <li>Implemented security solutions using Spring Security and OAuth2.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills">
+            <div class="card">Java, Spring Boot</div>
+            <div class="card">Microservices Architecture</div>
+            <div class="card">REST API, Feign, OpenFeign</div>
+            <div class="card">AWS (EC2, S3)</div>
+            <div class="card">PostgreSQL, MySQL</div>
+            <div class="card">Docker, Kubernetes</div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects">
+            <div class="card">
+                <h3>Multi-Vendor Rental Platform</h3>
+                <p>Java Spring Boot, ReactJS, Microservices, PostgreSQL</p>
+            </div>
+            <div class="card">
+                <h3>Inventory Management System</h3>
+                <p>Spring Boot, PostgreSQL, REST APIs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact">
+            <div class="card">
+                <p>Email: suraj.tiwari@example.com</p>
+                <p>Phone: +91 12345 67890</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         &copy; 2025 Suraj Tiwari. All rights reserved.
     </footer>
 
-    <!-- Scripts -->
+    <!-- JS for responsive navbar -->
     <script>
-        const typed = new Typed('#typed-name', {
-            strings: ["Suraj Tiwari"],
-            typeSpeed: 80,
-            backSpeed: 50,
-            backDelay: 2000,
-            startDelay: 500,
-            loop: true,
-            showCursor: true,
-            cursorChar: '|'
-        });
-
         const menuBtn = document.getElementById('menu-btn');
         const navLinks = document.getElementById('nav-links');
+
         menuBtn.addEventListener('click', () => {
             menuBtn.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
 
-        navLinks.querySelectorAll('a').forEach(link => {
+        document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 menuBtn.classList.remove('active');
                 navLinks.classList.remove('active');
@@ -539,5 +469,5 @@
         });
     </script>
 </body>
-
 </html>
+
