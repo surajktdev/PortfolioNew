@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Suraj Tiwari — Backend Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <!-- Typed.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-       <style>
+    <style>
+        /* ===================== Variables ===================== */
         :root {
             --bg: #0a0a0f;
             --surface: #141419;
@@ -25,6 +25,7 @@
             --gradient: linear-gradient(135deg, #00ff88, #00d4ff);
         }
 
+        /* ===================== Base ===================== */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -36,15 +37,19 @@
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
-            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
+        a {
+            text-decoration: none;
+        }
+
+        /* ===================== Grid Background ===================== */
         .grid-bg {
             position: fixed;
             inset: 0;
             background: linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px),
-                        linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+                linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px);
             background-size: 80px 80px;
             animation: gridMove 20s linear infinite;
             pointer-events: none;
@@ -52,10 +57,16 @@
         }
 
         @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(80px, 80px); }
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(80px, 80px);
+            }
         }
 
+        /* ===================== Navbar ===================== */
         nav {
             position: fixed;
             top: 0;
@@ -65,13 +76,12 @@
             background: rgba(10, 10, 15, 0.8);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-            transition: transform 0.3s ease;
         }
 
         .nav-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1.5rem 2rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -83,7 +93,6 @@
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .nav-links {
@@ -94,7 +103,6 @@
 
         .nav-links a {
             color: var(--text-dim);
-            text-decoration: none;
             font-weight: 500;
             position: relative;
             transition: color 0.3s;
@@ -137,7 +145,10 @@
             transform: rotate(45deg) translate(5px, 5px);
         }
 
-        .menu-btn.active span:nth-child(2) { opacity: 0; }
+        .menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
         .menu-btn.active span:nth-child(3) {
             transform: rotate(-45deg) translate(6px, -6px);
         }
@@ -156,10 +167,17 @@
                 gap: 2rem;
                 transition: right 0.3s ease;
             }
-            .nav-links.active { right: 0; }
-            .menu-btn { display: flex; }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-btn {
+                display: flex;
+            }
         }
 
+        /* ===================== Sections ===================== */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -168,6 +186,19 @@
             z-index: 1;
         }
 
+        section {
+            padding: 6rem 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ===================== Hero ===================== */
         .hero {
             min-height: 80vh;
             display: flex;
@@ -176,7 +207,10 @@
             margin-bottom: 6rem;
         }
 
-        .hero-content { flex: 1; }
+        .hero-content {
+            flex: 1;
+        }
+
         .hero-tag {
             display: inline-block;
             padding: 0.5rem 1rem;
@@ -191,8 +225,14 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
         }
 
         .hero h1 {
@@ -215,7 +255,12 @@
             max-width: 600px;
         }
 
-        .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
         .btn {
             padding: 1rem 2rem;
             border-radius: 12px;
@@ -250,26 +295,130 @@
             color: var(--accent);
         }
 
-        .hero-visual { flex: 0 0 400px; height: 400px; position: relative; }
+        .hero-visual {
+            flex: 0 0 400px;
+            height: 400px;
+            position: relative;
+        }
 
         @media (max-width: 968px) {
-            .hero { flex-direction: column; text-align: center; }
-            .hero-visual { display: none; }
-            .hero-cta { justify-content: center; }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+        }
+
+        /* ===================== About ===================== */
+        .about p {
+            max-width: 700px;
+            margin-bottom: 1rem;
+            color: var(--text-dim);
+        }
+
+        /* ===================== Experience ===================== */
+        .experience-item {
+            margin-bottom: 2rem;
+        }
+
+        .experience-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-item span {
+            font-size: 0.875rem;
+            color: var(--text-dim);
+        }
+
+        /* ===================== Skills ===================== */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill {
+            background: var(--surface-2);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* ===================== Projects ===================== */
+        .projects-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .project {
+            background: var(--surface-2);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+        }
+
+        .project h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .project p {
+            color: var(--text-dim);
+        }
+
+        /* ===================== Contact ===================== */
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 500px;
+        }
+
+        .contact input,
+        .contact textarea {
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface-2);
+            color: var(--text);
+        }
+
+        .contact button {
+            width: max-content;
+        }
+
+        /* ===================== Footer ===================== */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-dim);
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
         }
     </style>
 </head>
 
 <body>
     <div class="grid-bg"></div>
+
+    <!-- Navbar -->
     <nav>
         <div class="nav-content">
             <div class="logo">ST</div>
-            <div class="menu-btn" id="menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <div class="menu-btn" id="menu-btn"><span></span><span></span><span></span></div>
             <div class="nav-links" id="nav-links">
                 <a href="#about">About</a>
                 <a href="#experience">Experience</a>
@@ -280,203 +429,90 @@
         </div>
     </nav>
 
-  <div class="container">
-        <section class="hero" id="about">
+    <!-- Hero -->
+    <div class="container">
+        <section class="hero" id="home">
             <div class="hero-content">
                 <div class="hero-tag">🚀 Available for opportunities</div>
-                <h1> Hi, I'm <span id="typed-name" class="gradient-text"></span><br> Backend Developer </h1>
-                <p class="hero-description"> Building scalable, secure backend systems with Java, Spring Boot, and cloud
-                    technologies. 3.6 years of experience crafting robust REST APIs and microservices. </p>
-                <div class="hero-cta"> <a href="#projects" class="btn btn-primary"> View My Work <i
-                            class="bi bi-arrow-right"></i> </a> <a href="assets/Suraj_Tiwari_Resume.pdf" download
-                        class="btn btn-secondary"> <i class="bi bi-download"></i> Download Resume </a> </div>
-            </div>
-            <div class="hero-visual">
-                <div class="code-block">
-                    <div class="code-line"><span class="keyword">@RestController</span></div>
-                    <div class="code-line"><span class="keyword">public class</span> <span
-                            class="class">UserController</span> {</div>
-                    <div class="code-line"> <span class="comment">// Building APIs</span></div>
-                    <div class="code-line">}</div>
-                </div>
-                <div class="code-block">
-                    <div class="code-line"><span class="keyword">@Service</span></div>
-                    <div class="code-line"><span class="keyword">public class</span> <span
-                            class="class">DataService</span> {</div>
-                    <div class="code-line"> <span class="comment">// Processing logic</span></div>
-                    <div class="code-line">}</div>
-                </div>
-                <div class="code-block">
-                    <div class="code-line"><span class="keyword">docker</span> build -t app .</div>
-                    <div class="code-line"><span class="comment"># Containerizing</span></div>
+                <h1>Hi, I'm <span id="typed-name" class="gradient-text"></span><br>Backend Developer</h1>
+                <p class="hero-description">Building scalable, secure backend systems with Java, Spring Boot, and cloud
+                    technologies. 3.6 years of experience crafting robust REST APIs and microservices.</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">View My Work <i class="bi bi-arrow-right"></i></a>
+                    <a href="assets/Suraj_Tiwari_Resume.pdf" download class="btn btn-secondary"><i
+                            class="bi bi-download"></i> Download Resume</a>
                 </div>
             </div>
         </section>
-        <div class="stats">
-            <div class="stat-card">
-                <div class="stat-number">3.6+</div>
-                <div class="stat-label">Years Experience</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">Vulnerabilities Fixed</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">90%+</div>
-                <div class="stat-label">Test Coverage</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Commitment</div>
-            </div>
-        </div>
-        <section id="experience">
-            <div class="section-header">
-                <h2 class="section-title">Work Experience</h2>
-                <p class="section-subtitle">Building impactful backend solutions across organizations</p>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="timeline-title">Associate Consultant</h3>
-                            <div class="timeline-company">Infosys</div>
-                        </div>
-                        <div class="timeline-date">Jul 2025 – Present</div>
-                    </div>
-                    <p class="timeline-description">Noida, Uttar Pradesh</p>
-                    <ul class="timeline-list">
-                        <li>Contributing to Spring Boot microservices and REST API development within the Java
-                            competency team</li>
-                        <li>Gaining hands-on experience with Docker deployments, AWS cloud solutions, and CI/CD
-                            pipelines</li>
-                        <li>Learning from senior engineers to build scalable and maintainable backend systems</li>
-                    </ul>
-                    <div class="tech-tags"> <span class="tag">Java</span> <span class="tag">Spring Boot</span> <span
-                            class="tag">Docker</span> <span class="tag">AWS</span> <span class="tag">CI/CD</span> </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="timeline-title">System Engineer</h3>
-                            <div class="timeline-company">Tata Consultancy Services</div>
-                        </div>
-                        <div class="timeline-date">Jan 2022 – Jun 2025</div>
-                    </div>
-                    <p class="timeline-description">Gandhinagar, Gujarat</p>
-                    <ul class="timeline-list">
-                        <li>Designed and developed scalable web applications using Java, Spring Boot, Spring Security,
-                            and PostgreSQL following SOLID principles</li>
-                        <li>Collaborated with senior engineers to improve API efficiency and identify performance
-                            optimization opportunities</li>
-                        <li>Resolved 50+ security vulnerabilities using Checkmarx and SonarQube, achieving enterprise
-                            compliance</li>
-                        <li>Worked with AWS services (EC2, S3, SQS, CloudFormation, API Gateway) and supported CI/CD
-                            pipeline creation</li>
-                        <li>Maintained 90%+ unit test coverage using JUnit and Mockito, ensuring reliability on releases
-                        </li>
-                    </ul>
-                    <div class="tech-tags"> <span class="tag">Java</span> <span class="tag">Spring Boot</span> <span
-                            class="tag">Spring Security</span> <span class="tag">PostgreSQL</span> <span
-                            class="tag">AWS</span> <span class="tag">JUnit</span> <span class="tag">Mockito</span> <span
-                            class="tag">Checkmarx</span> <span class="tag">SonarQube</span> </div>
-                </div>
-            </div>
-        </section>
-        <section id="skills">
-            <div class="section-header">
-                <h2 class="section-title">Technical Skills</h2>
-                <p class="section-subtitle">Technologies I work with daily</p>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="bi bi-code-slash"></i> Languages</h3>
-                    <div class="skill-list"> <span class="skill-item">Java</span> <span class="skill-item">Python</span>
-                        <span class="skill-item">SQL</span> </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="bi bi-box"></i> Frameworks</h3>
-                    <div class="skill-list"> <span class="skill-item">Spring Boot</span> <span class="skill-item">Spring
-                            Security</span> <span class="skill-item">Microservices</span> <span class="skill-item">REST
-                            APIs</span> </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="bi bi-cloud"></i> DevOps & Cloud</h3>
-                    <div class="skill-list"> <span class="skill-item">AWS</span> <span class="skill-item">Docker</span>
-                        <span class="skill-item">Kubernetes</span> <span class="skill-item">Jenkins</span> <span
-                            class="skill-item">CI/CD</span> </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="bi bi-database"></i> Database & Testing</h3>
-                    <div class="skill-list"> <span class="skill-item">PostgreSQL</span> <span
-                            class="skill-item">MySQL</span> <span class="skill-item">JUnit</span> <span
-                            class="skill-item">Mockito</span> </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="bi bi-box"></i> Tools & API</h3>
-                    <div class="skill-list"> <span class="skill-item">Swagger</span> <span
-                            class="skill-item">Postman</span> <span class="skill-item">Checkmarx</span> <span
-                            class="skill-item">Git/GitHub</span> </div>
-                </div>
-            </div>
-        </section>
-        <section id="projects">
-            <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">Some things I've built</p>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">🏷️</div>
-                        <div class="project-links"> <a href="https://github.com/surajktdev/RentFlex---Public"
-                                target="_blank" rel="noopener noreferrer"> <i class="bi bi-github"></i> </a> </div>
-                    </div>
-                    <h3 class="project-title">RentFlex (In-Progress)</h3>
-                    <p class="project-description"> Multi-vendor rental marketplace platform enabling vendors and users
-                        to list, book, and manage rentals. Features include vendor onboarding, inventory management,
-                        booking engine with conflict detection, authentication with OAuth2/JWT, and payment integration.
-                    </p>
-                    <div class="tech-tags"> <span class="tag">Java</span> <span class="tag">Spring Boot</span> <span
-                            class="tag">Microservices</span> <span class="tag">Docker</span> <span
-                            class="tag">MySQL</span> <span class="tag">OAuth2</span> </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">📡</div>
-                        <div class="project-links"> <span style="color: var(--text-dim)"><i
-                                    class="bi bi-lock"></i></span> </div>
-                    </div>
-                    <h3 class="project-title">SIM – IoT Processing System</h3>
-                    <p class="project-description"> High-volume telemetry ingest and reporting system for aviation
-                        engine data. Implemented resilient Spring Boot services with validation pipelines, enrichment
-                        stages, and macro-enabled Excel reporting. Integrated with Fleet Modeling and Cost Systems. </p>
-                    <div class="tech-tags"> <span class="tag">Java</span> <span class="tag">Spring Boot</span> <span
-                            class="tag">PostgreSQL</span> <span class="tag">AWS</span> <span class="tag">JUnit</span>
-                        <span class="tag">Sonar</span> <span class="tag">CheckMarx</span> </div>
-                </div>
-            </div>
-        </section>
-        <section id="contact">
-            <div class="contact-section">
-                <div class="contact-content">
-                    <h2 class="contact-title">Let's Build Something Together</h2>
-                    <p class="contact-description"> I'm open to backend and cloud-native opportunities. Let's connect!
-                    </p>
-                    <div class="contact-links"> <a href="mailto:surajdeveloper9@gmail.com" class="social-link"> <i
-                                class="bi bi-envelope"></i> Email </a> <a
-                            href="https://www.linkedin.com/in/surajtiwari9/" target="_blank" rel="noopener noreferrer"
-                            class="social-link"> <i class="bi bi-linkedin"></i> LinkedIn </a> <a
-                            href="https://github.com/surajktdev" target="_blank" rel="noopener noreferrer"
-                            class="social-link"> <i class="bi bi-github"></i> GitHub </a> </div>
-                </div>
-            </div>
-        </section>
-        <footer> &copy; 2025 Suraj Tiwari. All rights reserved. </footer>
-    </div> <!-- end container --> <!-- Typed.js initialization -->
 
+        <!-- About -->
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <p>I am a Backend Developer with 3.6 years of experience in designing and implementing scalable backend
+                systems using Java, Spring Boot, Microservices, and cloud technologies.</p>
+            <p>I enjoy solving complex problems, optimizing performance, and delivering high-quality software
+                solutions.</p>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="experience">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h3>Java Backend Developer — TCS</h3>
+                <span>Oct 2022 – Present</span>
+                <p>Worked on developing scalable microservices and REST APIs using Java and Spring Boot.</p>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="skills">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <div class="skill">Java 8+</div>
+                <div class="skill">Spring Boot</div>
+                <div class="skill">Microservices</div>
+                <div class="skill">REST API</div>
+                <div class="skill">PostgreSQL</div>
+                <div class="skill">AWS</div>
+                <div class="skill">Docker & Kubernetes</div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="projects">
+            <h2>Projects</h2>
+            <div class="projects-list">
+                <div class="project">
+                    <h4>Multi-Vendor Rental Platform</h4>
+                    <p>Built scalable rental marketplace with microservices architecture using Java and Spring Boot.</p>
+                </div>
+                <div class="project">
+                    <h4>Inventory & Billing System</h4>
+                    <p>Developed backend system for inventory management and billing using Spring Boot and PostgreSQL.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="contact">
+            <h2>Contact</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </section>
+
+    </div>
+
+    <footer>
+        &copy; 2025 Suraj Tiwari. All rights reserved.
+    </footer>
+
+    <!-- Scripts -->
     <script>
-        // Typed.js
         const typed = new Typed('#typed-name', {
             strings: ["Suraj Tiwari"],
             typeSpeed: 80,
@@ -488,7 +524,6 @@
             cursorChar: '|'
         });
 
-        // Responsive Navbar
         const menuBtn = document.getElementById('menu-btn');
         const navLinks = document.getElementById('nav-links');
         menuBtn.addEventListener('click', () => {
@@ -496,12 +531,10 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close menu on link click
-        const links = navLinks.querySelectorAll('a');
-        links.forEach(link => {
+        navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
                 menuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
             });
         });
     </script>
